@@ -650,7 +650,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     // Action Button
     _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                   target:self
-                                                                  action:@selector(actionButtonPressed:)];
+                                                                  action:@selector(actionButtonTapped:)];
     
     // Gesture
     _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
@@ -1254,9 +1254,9 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     }
 }
 
-- (void)actionButtonPressed:(id)sender {
-    if (_delegate && [_delegate respondsToSelector:@selector(actionButtonPressed:)]) {
-        [_delegate performSelector:@selector(actionButtonPressed:) withObject:sender];
+- (void)actionButtonTapped:(id)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(actionButtonTapped:)]) {
+        [_delegate performSelector:@selector(actionButtonTapped:) withObject:sender];
         return;
     }
     
