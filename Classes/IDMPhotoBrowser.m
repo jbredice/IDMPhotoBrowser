@@ -1255,6 +1255,11 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
 }
 
 - (void)actionButtonPressed:(id)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(actionButtonPressed:)]) {
+        [_delegate performSelector:@selector(actionButtonPressed:) withObject:sender];
+        return;
+    }
+    
     id <IDMPhoto> photo = [self photoAtIndex:_currentPageIndex];
     
     if ([self numberOfPhotos] > 0 && [photo underlyingImage]) {
