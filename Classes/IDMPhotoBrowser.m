@@ -1260,6 +1260,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     
     if (_delegate && [_delegate respondsToSelector:@selector(actionButtonTapped:)]) {
         [_delegate performSelector:@selector(actionButtonTapped:) withObject:[photo underlyingImage]];
+        [self doneButtonPressed:sender];
         return;
     }
     
